@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empréstimo Express | Crédito rápido para motoristas de aplicativo</title>
+    <meta name="description" content="Empréstimo Express — crédito facilitado para motoristas de aplicativo sem consulta ao SPC. Aprovação rápida, sem burocracia. Solicite já!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">
+                <div class="logo-text">
+                    <span class="logo-ee">EE</span>
+                    <span class="logo-divider"></span>
+                    <span class="logo-name">Empréstimo Express</span>
+                </div>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="#como-funciona" class="nav-link">Como Funciona</a>
+                <a href="#simulador" class="nav-link">Simulador</a>
+                <a href="#vantagens" class="nav-link">Vantagens</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="https://w.app/emprestimo-express" class="nav-btn" target="_blank" rel="noopener">Solicitar Agora</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-effects">
+            <div class="hero-glow hero-glow-1"></div>
+            <div class="hero-glow hero-glow-2"></div>
+            <div class="hero-grid-overlay"></div>
+        </div>
+        <div class="container hero-container hero-no-visual"> <!-- Added hero-no-visual -->
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Crédito facilitado para motoristas
+                </div>
+                <h1 class="hero-title">
+                    Dinheiro na mão, <br>
+                    <span class="gold-text">sem burocracia.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Empréstimo rápido e descomplicado para motoristas de aplicativo. 
+                    Sem consulta ao SPC, sem fiador, sem enrolação.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" data-target="500">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label">Motoristas atendidos</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="98">0</span><span class="stat-suffix">%</span>
+                        <span class="stat-label">Taxa de aprovação</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="24">0</span><span class="stat-suffix">h</span>
+                        <span class="stat-label">Para aprovação</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#simulador" class="btn btn-primary" id="hero-cta">
+                        Simular Empréstimo
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#como-funciona" class="btn btn-outline" id="hero-secondary-cta">
+                        Como funciona
+                    </a>
+                </div>
+            </div>
+            <!-- hero-visual REMOVED HERE -->
+        </div>
+        <!-- hero-scroll-indicator REMOVED -->
+    </section>
+
+    <!-- ===== SOBRE ===== -->
+    <section class="section" id="sobre">
+        <div class="container text-center"> <!-- Centered info for more elegance -->
+            <div class="section-header">
+                <span class="section-tag">Quem somos</span>
+                <h2 class="section-title">Crédito pensado para <span class="gold-text">quem dirige</span></h2>
+                <p class="section-desc">
+                    Somos uma empresa especializada em oferecer crédito facilitado exclusivamente para motoristas de aplicativo. 
+                    Limpamos a burocracia para você focar no que importa: a estrada.
+                </p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card" data-reveal>
+                    <div class="about-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Sem consulta ao SPC</h3>
+                    <p>O que conta é a sua capacidade de trabalho, não o seu score bancário.</p>
+                </div>
+                <div class="about-card" data-reveal>
+                    <div class="about-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <h3>Processo ágil</h3>
+                    <p>Em até 24 horas o dinheiro estará na sua conta. Simples e rápido.</p>
+                </div>
+                <div class="about-card" data-reveal>
+                    <div class="about-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                    </div>
+                    <h3>Atendimento humano</h3>
+                    <p>Fale diretamente pelo WhatsApp com nossa equipe.</p>
+                </div>
+                <div class="about-card" data-reveal>
+                    <div class="about-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                    </div>
+                    <h3>Pagamento flexível</h3>
+                    <p>Condições pensadas para quem vive do dia a dia do app.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COMO FUNCIONA ===== -->
+    <section class="section section-alt" id="como-funciona">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Simplificado</span>
+                <h2 class="section-title">Como funciona, <span class="gold-text">sem complicação</span></h2>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card" data-reveal>
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Simule e solicite</h3>
+                        <p>Entre em contato pelo WhatsApp e peça uma análise.</p>
+                    </div>
+                </div>
+                <div class="step-card" data-reveal>
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Envie os dados</h3>
+                        <p>CNH e comprovante de atividade no app.</p>
+                    </div>
+                </div>
+                <div class="step-card" data-reveal>
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Análise rápida</h3>
+                        <p>Nosso time responde em minutos.</p>
+                    </div>
+                </div>
+                <div class="step-card" data-reveal>
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Dinheiro na conta</h3>
+                        <p>Receba via PIX imediatamente após aprovação.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SIMULADOR ===== -->
+    <section class="section" id="simulador">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Simulador</span>
+                <h2 class="section-title">Escolha seu <span class="gold-text">valor</span></h2>
+            </div>
+            <div class="simulator-wrapper" data-reveal>
+                <div class="simulator-card">
+                    <div class="simulator-inner">
+                        <div class="sim-group">
+                            <label class="sim-label">Quanto você precisa?</label>
+                            <div class="sim-value-display">R$ <span id="sim-value-text">1.000</span>,00</div>
+                            <input type="range" id="sim-valor" class="sim-range" min="200" max="5000" value="1000" step="100">
+                        </div>
+                        <div class="sim-group">
+                            <label class="sim-label">Prazo sugerido</label>
+                            <div class="sim-value-display"><span id="sim-prazo-text">30</span> dias</div>
+                            <input type="range" id="sim-prazo" class="sim-range" min="7" max="90" value="30" step="1">
+                        </div>
+                        <div class="sim-results">
+                            <div class="sim-total-item">
+                                <span class="sim-result-label">Total a pagar</span>
+                                <span class="sim-result-value" id="sim-total">R$ 1.300,00</span>
+                            </div>
+                            <p class="sim-note">Taxa de 1% ao dia inclusa.</p>
+                        </div>
+                        <a href="https://w.app/emprestimo-express" class="btn btn-primary btn-full" id="sim-cta" target="_blank" rel="noopener">Solicitar no WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section section-alt" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Perguntas <span class="gold-text">frequentes</span></h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item" data-reveal>
+                    <button class="faq-question">
+                        <span>Quem pode solicitar?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer"><p>Motoristas de aplicativo (Uber, 99) com CNH ativa.</p></div>
+                </div>
+                <div class="faq-item" data-reveal>
+                    <button class="faq-question">
+                        <span>Preciso de nome limpo?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer"><p>Não! Avaliamos seu perfil no aplicativo.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <span class="logo-ee">EE</span> Empréstimo Express
+                <p class="footer-tagline">Para quem dirige sua própria vida.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Empréstimo Express. Todos os direitos reservados.</p>
+                <p class="footer-disclaimer">Sujeito a análise. Crédito informal.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
