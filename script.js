@@ -18,6 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
         navToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+        
+        // Close menu when a link is clicked
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
     }
 
     // ===== FAQ TOGGLES =====
@@ -40,39 +48,112 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ===== SIMULATOR LOGIC =====
     const inputValor = document.getElementById('sim-valor');
-    const inputPrazo = document.getElementById('sim-prazo');
     const displayValor = document.getElementById('sim-value-text');
-    const displayPrazo = document.getElementById('sim-prazo-text');
-    const displayTotal = document.getElementById('sim-total');
+    const displayDiaria = document.getElementById('sim-diaria');
     const ctaSim = document.getElementById('sim-cta');
+
+    let currentSimValues = { valor: 1000, diaria: 0, total: 0 };
 
     function updateSimulator() {
         const valor = parseInt(inputValor.value);
-        const prazo = parseInt(inputPrazo.value);
-        const taxaDiaria = 0.01; // 1% ao dia
+        const taxa = 0.30; // 30% de juros
+        const prazo = 30;  // 30 dias fixo
 
-        const juros = valor * taxaDiaria * prazo;
-        const total = valor + juros;
+        const total = valor * (1 + taxa);
+        const diaria = total / prazo;
+
+        currentSimValues = { valor, diaria, total };
 
         // Update displays
         if (displayValor) displayValor.textContent = valor.toLocaleString('pt-BR');
-        if (displayPrazo) displayPrazo.textContent = prazo;
-        if (displayTotal) displayTotal.textContent = total.toLocaleString('pt-BR', {
+        if (displayDiaria) displayDiaria.textContent = diaria.toLocaleString('pt-BR', {
             style: 'currency',
             currency: 'BRL'
         });
+    }
 
-        // Update WhatsApp Link
-        if (ctaSim) {
-            const message = `Olá! Vi seu site e gostaria de um empréstimo:\nValor: R$ ${valor.toLocaleString('pt-BR')}\nPrazo: ${prazo} dias\nTotal: R$ ${total.toLocaleString('pt-BR')}`;
-            ctaSim.href = `https://w.app/emprestimo-express?text=${encodeURIComponent(message)}`;
+    if (inputValor) {
+        inputValor.addEventListener('input', updateSimulator);
+        updateSimulator();
+    }
+
+    // ===== TERMS MODAL =====
+    const termsOverlay = document.getElementById('terms-overlay');
+    const termsClose = document.getElementById('terms-close');
+    const termsCheckboxes = document.querySelectorAll('.terms-checkbox');
+    const termsBtnWhatsapp = document.getElementById('terms-btn-whatsapp');
+
+    // Open modal when CTA is clicked
+    if (ctaSim) {
+        ctaSim.addEventListener('click', () => {
+            if (termsOverlay) {
+                termsOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    }
+
+    // Also open modal from hero and nav WhatsApp buttons
+    const heroCta = document.getElementById('hero-cta');
+    const navBtn = document.querySelector('.nav-btn');
+    [heroCta, navBtn].forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Scroll to simulator first
+                document.getElementById('simulador')?.scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+    });
+
+    // Close modal
+    function closeTermsModal() {
+        if (termsOverlay) {
+            termsOverlay.classList.remove('active');
+            document.body.style.overflow = '';
         }
     }
 
-    if (inputValor && inputPrazo) {
-        inputValor.addEventListener('input', updateSimulator);
-        inputPrazo.addEventListener('input', updateSimulator);
-        updateSimulator();
+    if (termsClose) termsClose.addEventListener('click', closeTermsModal);
+    if (termsOverlay) {
+        termsOverlay.addEventListener('click', (e) => {
+            if (e.target === termsOverlay) closeTermsModal();
+        });
+    }
+
+    // Close with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && termsOverlay?.classList.contains('active')) {
+            closeTermsModal();
+        }
+    });
+
+    // Track checkboxes
+    function updateTermsButton() {
+        const allChecked = [...termsCheckboxes].every(cb => cb.checked);
+        if (termsBtnWhatsapp) {
+            termsBtnWhatsapp.disabled = !allChecked;
+        }
+    }
+
+    termsCheckboxes.forEach(cb => {
+        cb.addEventListener('change', () => {
+            // Toggle visual class on parent
+            const parentItem = cb.closest('.terms-item');
+            if (parentItem) {
+                parentItem.classList.toggle('checked', cb.checked);
+            }
+            updateTermsButton();
+        });
+    });
+
+    // WhatsApp redirect on terms button click
+    if (termsBtnWhatsapp) {
+        termsBtnWhatsapp.addEventListener('click', () => {
+            const url = `https://wa.me/message/BMBYSOKISTH4L1`;
+            window.open(url, '_blank');
+            closeTermsModal();
+        });
     }
 
     // ===== COUNTER ANIMATION =====
